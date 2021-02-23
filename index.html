@@ -4,16 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="style.css">
     <title>Code Quiz</title>
 </head>
 
 <body>
     <div id = "container">
+        <div class = "correct">
+        <div class = "wrong">
         <h1>Code Quiz Challenge</h1>
-        <div id = "home">
-
+        
+        <div id = "home-page-container" class = "hide">
+            <p>Can you play until the end?</p>
         </div>
+
+        <div id = "quiz">
+            <div id = "question">Question: </div>
+            <div id = "answer-btns"></div>
+                <button class = "choice-letter" data-number = "1">A</button>
+                <button class = "choice-letter" data-number = "2">B</button>
+                <button class = "choice-letter" data-number = "3">C</button>
+                <button class = "choice-letter" data-number = "4">D</button>
+        </div>
+        <div class = "controls">
+            <button id = "start-btn">Start</button>
+            <button id = "next-btn">Next</button>
+        </div>
+
+        </div> <!--ending of class correct-->
+        </div> <!--ending of class wrong-->
+
+        
+
 
 
 
