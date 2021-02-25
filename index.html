@@ -13,25 +13,27 @@
         <div class = "correct">
         <div class = "wrong">
         <div id = "score"></div>
-        <h1>Code Quiz Challenge</h1>
         
         <div id = "home-page-container" class = "hide">
+            <h1>Code Quiz Challenge</h1>
             <p>Can you play until the end?</p>
         </div>
 
         <div id = "quiz">
             <div id = "timer"></div>
+                <div id = "counter"></div>
             <div id = "question">Question: </div>
             <div id = "counter"></div>
             <div id = "answer-btns"></div>
-                <button class = "choice-letter" data-number = "1">A</button>
-                <button class = "choice-letter" data-number = "2">B</button>
-                <button class = "choice-letter" data-number = "3">C</button>
-                <button class = "choice-letter" data-number = "4">D</button>
+                <button class = "choice-letter" id = "A">A</button>
+                <button class = "choice-letter" id = "B">B</button>
+                <button class = "choice-letter" id = "C">C</button>
+                <button class = "choice-letter" id = "D">D</button>
+                <!--debating btwn id vs data-number-->
         </div>
         <div class = "controls">
             <button id = "start-btn">Start</button>
-            <button id = "next-btn">Next</button>
+           <!-- <button id = "next-btn">Next</button>-->
         </div>
 
         </div> <!--ending of class correct-->
