@@ -2,40 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Coding Quiz with Web APIs</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id = "container">
-        <div id = "correct">
-        <div id = "wrong">
-        
-        <div id = "home-page-container"> Do you want to try this quiz?</div>
-
-        <div id = "quiz" style = "display:none">
-            <div id = "timer"></div>
-                <div id = "counter"></div>
-            <div id = "question"></div>
-            <div id = "answer-btns"></div>
-                <button class = "choice-letter" id = "A" onclick="checkAnswer('A')">A</button>
-                <button class = "choice-letter" id = "B" onclick="checkAnswer('B')">B</button>
-                <button class = "choice-letter" id = "C" onclick="checkAnswer('C')">C</button>
-                <button class = "choice-letter" id = "D" onclick="checkAnswer('D')">D</button>
+    <div id="container">
+        <div id="start">Do you want to try this quiz?</div>
+        <div id="quiz" style="display: none">
+            <div id="question"></div>
+            <div id="answers">
+                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+                <div class="choice" id="D" onclick="checkAnswer('D')"></div>
+            </div>
+            <div id = "correct"></div>
+            <div id = "wrong"></div>
+            <div id="timer">
+                <div id="counter"></div>
+            </div>
+            <div id="progress"></div>
         </div>
-        <div class = "progress">
-        </div>
-        <div id = "scoreContainer" style= "display:none"></div>
+        <div id="scoreContainer" style="display: none"></div>
             <div id = "leaderboard"></div>
-            <div id = "highscore"></div>
-            <div id = "playerName"></div>
-
-        </div> <!--ending of class correct-->
-        </div> <!--ending of class wrong-->
-
+                <div id = "highscore"></div>
+                <div id = "yourName"></div>
+           <!-- <a href = "scores.html" class ="hide" id = "scoreboard">Save your score.</a>
+            <a href = "leaderboard.html" class ="hide" id = "leaderboard">Leaderboard</a>-->
     </div>
-    <script src = "script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

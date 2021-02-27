@@ -1,6 +1,10 @@
-var start = document.getElementById("home-page-container");
+var start = document.getElementById("start");
 var quiz = document.getElementById("quiz");
 var question = document.getElementById("question");
+var choiceA = document.getElementById("A");
+var choiceB = document.getElementById("B");
+var choiceC = document.getElementById("C");
+var choiceD = document.getElementById("D"); 
 var counter = document.getElementById("counter");
 var progress = document.getElementById("progress");
 var scoreDiv = document.getElementById("scoreContainer");
@@ -8,22 +12,7 @@ var correct = document.getElementById("correct");
 var wrong = document.getElementById("wrong"); 
 var leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
 
-//older below
-/*var startButton = document.getElementById("start-btn"); 
-var homePage = document.getElementById("home-page-container");
-var quiz = document.getElementById("quiz"); 
-var questionEl = document.getElementById("question"); 
-var answerBtnEl= document.getElementById("answer-btns");
-var questionCorrect = document.getElementById("correct");
-var counter = document.getElementById("counter");
-var scoreDiv = document.getElementById("score"); */
-
-var choiceA= document.getElementById("A"); 
-var choiceB= document.getElementById("B"); 
-var choiceC= document.getElementById("C"); 
-var choiceD= document.getElementById("D"); 
-
-
+// quiz questions
 var questions = [
     {
         question : "What does HTML stand for?",
@@ -75,8 +64,8 @@ var questionTime = 0; // 30s
 var timer;
 var score = 0;
 
-//generates question from array
-function produceQuestion(){
+// render a question
+function renderQuestion(){
     let q = questions[runningQuestion];
     
     question.innerHTML = "<p>"+ q.question +"</p>";
@@ -91,15 +80,14 @@ start.addEventListener("click",startQuiz);
 // start quiz
 function startQuiz(){
     start.style.display = "none";
-    produceQuestion();
+    renderQuestion();
     quiz.style.display = "block";
     renderProgress();
-    createCounter();
-    timer = setInterval(createCounter,1000); // 1000ms = 1s
+    renderCounter();
+    timer = setInterval(renderCounter,1000); // 1000ms = 1s
     gameOver(); 
 }
 
-//saving leaderboard
 function highScore () {
     leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
     leaderboard.sort((a, b) => b.score - a.score);
@@ -116,27 +104,47 @@ function renderProgress(){
     }
 }
 
-// create counter
-function createCounter(){
+// counter render
+
+function renderCounter(){
     if(count >= questionTime){
         counter.innerHTML = count;
         count--;
     } 
+
+    /*else{
+        count = 0;
+        // change progress color to red
+        answerIsWrong();
+        if(runningQuestion < lastQuestion){
+            runningQuestion++;
+            renderQuestion();
+        }else{
+            // end the quiz and show the score
+            clearInterval(timer);
+            scoreRender();
+        }
+    }*/
 }
 
-// check if answer is right or wrong
+// checkAnwer
+
 function checkAnswer(answer){
     if( answer == questions[runningQuestion].correct){
         // answer is correct
         score++;
+        // change progress color to green
         answerIsCorrect();
+        //correct.style.visibility = "hidden"; 
     }else{
         // answer is wrong
+        // change progress color to red
         answerIsWrong();
+        //wrong.style.visibility = "hidden"; 
     }
     if(runningQuestion < lastQuestion){
         runningQuestion++;
-        produceQuestion();
+        renderQuestion();
     }else{
         // end the quiz and show the score
         clearInterval(timer);
@@ -155,13 +163,13 @@ function disappearCorrect(){
     document.getElementById("correct").style.display = "none";
 }
 
-// answer is wrong, also decreases time if wrong
+// answer is Wrong
 function answerIsWrong(){
     wrong.innerHTML = "Wrong!"; 
     window.setTimeout("disappearWrong();", 500);
     if(runningQuestion < lastQuestion){
         runningQuestion++;
-        produceQuestion();
+        renderQuestion();
     }else{
         // end the quiz and show the score
         clearInterval(timer);
@@ -170,6 +178,7 @@ function answerIsWrong(){
     if (count >= 0) {
         count -=5; 
     }
+
 }
 
 function disappearWrong() {
@@ -180,10 +189,24 @@ function disappearWrong() {
 function scoreRender(){ 
     quiz.style.display = "none";
     scoreDiv.style.display = "block";
+    
+    // calculate the amount of question percent answered by the user
+    //const scorePerCent = Math.round(100 * score/questions.length);
     score;
+    // choose the image based on the scorePerCent
     scoreDiv.innerHTML += "<p>"+ score +"</p>";
     
+    //scoreboardBtn(); 
 } ; 
+/*function scoreboardBtn() {
+    var scoreBtn = document.createElement("score-button");
+    scoreBtn.type = "button"; 
+    scoreBtn.innerHTML = "Enter Score"; 
+    scoreBtn.className = 'btn-styled';
+    scoreDiv.appendChild(scoreBtn); 
+    document.getElementById("leaderBoard").style.display = "block"; 
+    //scoreBtn.addEventListener("click", scoreBoard()); 
+}*/
 
 function gameOver() {
     // define and create name submit form elements
