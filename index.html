@@ -5,36 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Code Quiz</title>
+    <title>Coding Quiz with Web APIs</title>
 </head>
 
 <body>
     <div id = "container">
         <div id = "correct">
         <div id = "wrong">
-        <div id = "score"></div>
         
-        <div id = "home-page-container" class = "hide">
-            <h1>Code Quiz Challenge</h1>
-            <p>Can you play until the end?</p>
-        </div>
+        <div id = "home-page-container"> Do you want to try this quiz?</div>
 
-        <div id = "quiz">
+        <div id = "quiz" style = "display:none">
             <div id = "timer"></div>
                 <div id = "counter"></div>
-            <div id = "question">Question: </div>
-            <div id = "counter"></div>
+            <div id = "question"></div>
             <div id = "answer-btns"></div>
-                <button class = "choice-letter" id = "A">A</button>
-                <button class = "choice-letter" id = "B">B</button>
-                <button class = "choice-letter" id = "C">C</button>
-                <button class = "choice-letter" id = "D">D</button>
-                <!--debating btwn id vs data-number-->
+                <button class = "choice-letter" id = "A" onclick="checkAnswer('A')">A</button>
+                <button class = "choice-letter" id = "B" onclick="checkAnswer('B')">B</button>
+                <button class = "choice-letter" id = "C" onclick="checkAnswer('C')">C</button>
+                <button class = "choice-letter" id = "D" onclick="checkAnswer('D')">D</button>
         </div>
-        <div class = "controls">
-            <button id = "start-btn">Start</button>
-           <!-- <button id = "next-btn">Next</button>-->
+        <div class = "progress">
         </div>
+        <div id = "scoreContainer" style= "display:none"></div>
+            <div id = "leaderboard"></div>
+            <div id = "highscore"></div>
+            <div id = "playerName"></div>
 
         </div> <!--ending of class correct-->
         </div> <!--ending of class wrong-->
