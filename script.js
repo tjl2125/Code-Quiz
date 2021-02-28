@@ -3,7 +3,7 @@ var quiz = document.getElementById("quiz");
 var question = document.getElementById("question");
 var counter = document.getElementById("counter");
 var progress = document.getElementById("progress");
-var scoreDiv = document.getElementById("scoreContainer");
+var showScore = document.getElementById("scoreContainer");
 var correct = document.getElementById("correct");
 var wrong = document.getElementById("wrong"); 
 var leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
@@ -58,7 +58,7 @@ var questions = [
 ];
 
 var lastQuestion = questions.length - 1;
-var runningQuestion = 0;
+var runQuestion = 0;
 var count = 30; //countdown from 30s
 var questionTime = 0; 
 var timer;
@@ -66,7 +66,7 @@ var score = 0;
 
 // render a question
 function produceQuestion(){
-    let q = questions[runningQuestion];
+    let q = questions[runQuestion];
     
     question.innerHTML = "<p>"+ q.question +"</p>";
     choiceA.innerHTML = q.choiceA;
@@ -83,8 +83,8 @@ function startQuiz(){
     produceQuestion();
     quiz.style.display = "block";
     renderProgress();
-    renderCounter();
-    timer = setInterval(renderCounter,1000); // 1000ms = 1s
+    startCounter();
+    timer = setInterval(startCounter,1000); // 1000ms = 1s
     gameOver(); 
 }
 
@@ -106,7 +106,7 @@ function renderProgress(){
 
 // counter render
 
-function renderCounter(){
+function startCounter(){
     if(count >= questionTime){
         counter.innerHTML = count;
         count--;
@@ -116,7 +116,7 @@ function renderCounter(){
 // checkAnwer
 
 function checkAnswer(answer){
-    if( answer == questions[runningQuestion].correct){
+    if( answer == questions[runQuestion].correct){
         // answer is correct
         score++;
         answerIsCorrect(); 
@@ -124,8 +124,8 @@ function checkAnswer(answer){
         // answer is wrong
         answerIsWrong(); 
     }
-    if(runningQuestion < lastQuestion){
-        runningQuestion++;
+    if(runQuestion < lastQuestion){
+        runQuestion++;
         produceQuestion();
     }else{
         // end the quiz and show the score
@@ -149,8 +149,8 @@ function disappearCorrect(){
 function answerIsWrong(){
     wrong.innerHTML = "Wrong!"; 
     window.setTimeout("disappearWrong();", 500);
-    if(runningQuestion < lastQuestion){
-        runningQuestion++;
+    if(runQuestion < lastQuestion){
+        runQuestion++;
         produceQuestion();
     }else{
         // end the quiz and show the score
@@ -171,9 +171,9 @@ function disappearWrong() {
 // score render
 function scoreRender(){ 
     quiz.style.display = "none";
-    scoreDiv.style.display = "block";
+    showScore.style.display = "block";
     score;
-    scoreDiv.innerHTML += "<p>"+ score +"</p>";
+    showScore.innerHTML += "<p>"+ score +"</p>";
 } ; 
 
 function gameOver() {
@@ -224,22 +224,22 @@ function saveName(event) {
     }
     leaderboard.push(user);
     localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
-    //clear all form elements
     var target = document.querySelector('#yourName');
     while (target.firstChild) {
         target.removeChild(target.firstChild);
     }
-    buildLeaderboard();
+    constructLeaderboard();
 };
 
-function buildLeaderboard() {
-    // Retrieve leaderboard array from local storage, sort it in descending order based on score value, and create a list with the top 4 scores
+function constructLeaderboard() {
+    // get leaderboard array from local storage, sort it in descending order based on score value, and create a list with the top 4 scores
     leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
     leaderboard.sort((a, b) => b.score - a.score);
     for (var i = 0; (i < leaderboard.length) && (i <4); i++) {
         var list = document.createElement('li');
         list.textContent = leaderboard[i].name + " : " + leaderboard[i].score;
-        list.style = "font-size: .7em";
+        list.style = "font-size: .5em";
         container.appendChild(list);
     }
 }; 
+

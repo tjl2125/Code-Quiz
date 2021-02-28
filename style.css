@@ -119,3 +119,15 @@ body{
     display:none; 
     margin-bottom: 10%; 
 }
+
+li {
+    list-style-type: square;
+}
+
+li::before {
+    
+    color: var(--red);
+    display: inline-block; width: 1em;
+    margin-left: 5em; 
+    font-weight: bold;
+}
