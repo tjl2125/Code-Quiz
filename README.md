@@ -9,7 +9,7 @@ seconds.
 
 
 ## Screenshot 
-
+![Screenshot of deployed application](./Screenshot.png)
 
 ## Link to Deployed Application 
 https://tjl2125.github.io/Code-Quiz-with-Web-APIs/
