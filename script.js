@@ -17,7 +17,7 @@ var choiceD = document.getElementById("D");
 var questions = [
     {
         question : "What does HTML stand for?",
-        choiceA : "Correct",
+        choiceA : "Hypertext Markup Language",
         choiceB : "Wrong",
         choiceC : "Wrong",
         choiceD : "Wrong",
@@ -26,7 +26,7 @@ var questions = [
     {
         question : "What does CSS stand for?",
         choiceA : "Wrong",
-        choiceB : "Correct",
+        choiceB : "Cascading Style Sheets",
         choiceC : "Wrong",
         choiceD : "Wrong",
         correct : "B"
@@ -35,7 +35,7 @@ var questions = [
         question : "What does JS stand for?",
         choiceA : "Wrong",
         choiceB : "Wrong",
-        choiceC : "Correct",
+        choiceC : "Javascript",
         choiceD : "Wrong", 
         correct : "C"
     },
@@ -52,7 +52,7 @@ var questions = [
         choiceA: "A",
         choiceB: "B",
         choiceC: "C",
-        choiceD: "Correct",
+        choiceD: "D",
         correct: "D"  
     }
 
@@ -86,7 +86,7 @@ function startQuiz(){
     renderProgress();
     startCounter();
     timer = setInterval(startCounter,1000); // 1000ms = 1s
-    gameOver(); 
+    quizOver(); 
 }
 
 function highScore () {
@@ -105,8 +105,7 @@ function renderProgress(){
     }
 }
 
-// counter render
-
+// start counter
 function startCounter(){
     if(count >= questionTime){
         counter.innerHTML = count;
@@ -114,16 +113,15 @@ function startCounter(){
     } 
 }
 
-// checkAnwer
-
+// check if answer is right or wrong
 function checkAnswer(answer){
     if( answer == questions[runQuestion].correct){
         // answer is correct
         score++;
-        answerIsCorrect(); 
+        answerCorrect(); 
     }else{
         // answer is wrong
-        answerIsWrong(); 
+        answerWrong(); 
     }
     if(runQuestion < lastQuestion){
         runQuestion++;
@@ -137,9 +135,9 @@ function checkAnswer(answer){
 }; 
 
 // answer is correct
-function answerIsCorrect(){
+function answerCorrect(){
     correct.innerHTML = "Correct!";
-    window.setTimeout("disappearCorrect();", 500);
+    window.setTimeout("disappearCorrect();", 900);
 }
 
 function disappearCorrect(){
@@ -147,9 +145,9 @@ function disappearCorrect(){
 }
 
 // answer is Wrong
-function answerIsWrong(){
+function answerWrong(){
     wrong.innerHTML = "Wrong!"; 
-    window.setTimeout("disappearWrong();", 500);
+    window.setTimeout("disappearWrong();", 900);
     if(runQuestion < lastQuestion){
         runQuestion++;
         produceQuestion();
@@ -162,12 +160,11 @@ function answerIsWrong(){
     if (count >= 0) {
         count -=5; 
     }
-
-}
+}; 
 
 function disappearWrong() {
     document.getElementById("wrong").style.display = "none"; 
-}
+};
 
 // score render
 function scoreRender(){ 
@@ -177,8 +174,7 @@ function scoreRender(){
     showScore.innerHTML += "<p>"+ score +"</p>";
 } ; 
 
-function gameOver() {
-    
+function quizOver() {
     var target = document.querySelector('#yourName');
     var form = document.createElement('form');
     var div = document.createElement('div');

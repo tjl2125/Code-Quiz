@@ -5,7 +5,9 @@ From the perspective of a boot camp student, I have created a quiz on Javascript
 inputted players. Scores are listed from highest to lowest. Players press a button in order
 to start the quiz and are presented with 5 questions that have 4 choices. There is also a
 timer counting down and if a person chooses the wrong answer, the timer deducts 5 extra
-seconds. 
+seconds. At the end of the quiz, people are able to save score and add their initials. I had
+a hard time making the code for this assignment since there are a lot of moving parts. In the
+end, I made a quiz that follows the criteria to the best of my abilities. 
 
 
 ## Screenshot 
@@ -17,7 +19,7 @@ https://tjl2125.github.io/Code-Quiz-with-Web-APIs/
 ## License 
 MIT License
 
-Copyright (c) [2019] [Horiseon-Social-Solution-Services]
+Copyright (c) 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

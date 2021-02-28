@@ -7,7 +7,6 @@
  --red: crimson; 
 }
 
-
 body{
     font-size: 40px;
     background-color: burlywood;
@@ -22,6 +21,7 @@ body{
     box-shadow: 10px 15px 15px 0px;
     position: relative;
 }
+
 #start{
     font-size: 1.5em;
     font-weight: bolder;
@@ -36,6 +36,7 @@ body{
     cursor: pointer;
     position: absolute;
 }
+
 #start:hover{
     border: 5px solid var(--cyan);
     color : var(--slate); 
@@ -48,10 +49,12 @@ body{
     right:0;
     top:0;
 }
+
 #question p{
     margin : 0;
     padding : 15px;
     font-size: 1.25em;
+    color: var(--red);
 }
 
 #answers{
@@ -61,19 +64,30 @@ body{
     top : 125px;
     padding : 10px
 }
+
 .choice-letters{
     display: inline-block;
-    width : 135px;
+    width : 170px;
     text-align: center;
+    justify-content: space-evenly;
     border : 1px solid var(--black);
     border-radius: 5px;
     cursor: pointer;
     padding : 5px;
 }
-.choice-.choice-letters{
+
+.choice-letters:hover{
     border : 2px solid var(--black);
     font-weight: bold;
     color: var(--red); 
+}
+
+#correct {
+    display: none; 
+}
+
+#wrong {
+    display: none; 
 }
 
 #timer{
@@ -85,6 +99,8 @@ body{
 }
 #counter{
     font-size: 3em;
+    color: var(--red);
+    background-color: var(--cyan);
 }
 
 #scoreContainer{
@@ -98,11 +114,13 @@ body{
     position: relative;
     display: none;
 }
+
 #scoreContainer img{
     position: absolute;
     top:100px;
     left:325px;
 }
+
 #scoreContainer p{
     position: absolute;
     display: block;
@@ -125,7 +143,6 @@ li {
 }
 
 li::before {
-    
     color: var(--red);
     display: inline-block; width: 1em;
     margin-left: 5em; 
