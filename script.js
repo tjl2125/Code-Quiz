@@ -130,7 +130,7 @@ function checkAnswer(answer){
         // end the quiz and show the score
         clearInterval(timer);
         scoreRender();
-        document.getElementById("yourName").style.display = "block"; 
+        document.getElementById("playerName").style.display = "block"; 
     }
 }; 
 
@@ -175,7 +175,7 @@ function scoreRender(){
 } ; 
 
 function quizOver() {
-    var target = document.querySelector('#yourName');
+    var input = document.querySelector('#playerName');
     var form = document.createElement('form');
     var div = document.createElement('div');
     // var scoreText = document.createElement('p');
@@ -197,12 +197,12 @@ function quizOver() {
     submit.setAttribute("class", "btn-sm btn-success px-4 mt-2");
     field.setAttribute("class", "form-control");
     div.setAttribute("class", "form-inline");
-    target.appendChild(form);
+    input.appendChild(form);
     form.appendChild(div);
     // div.appendChild(scoreText);
     div.appendChild(label);
     div.appendChild(field);
-    target.appendChild(submit);
+    input.appendChild(submit);
     submit.addEventListener("click", saveName);
 };
 
@@ -221,9 +221,9 @@ function saveName(event) {
     }
     leaderboard.push(user);
     localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
-    var target = document.querySelector('#yourName');
-    while (target.firstChild) {
-        target.removeChild(target.firstChild);
+    var input = document.querySelector('#playerName');
+    while (input.firstChild) {
+        input.removeChild(input.firstChild);
     }
     constructLeaderboard();
 };
@@ -232,7 +232,7 @@ function constructLeaderboard() {
     // get leaderboard array from local storage, sort it in descending order based on score value, and create a list with the top 4 scores
     leaderboard = JSON.parse(localStorage.getItem("leaderboard"));
     leaderboard.sort((a, b) => b.score - a.score);
-    for (var i = 0; (i < leaderboard.length) && (i <4); i++) {
+    for (var i = 0; (i < leaderboard.length) && (i <10); i++) {
         var list = document.createElement('li');
         list.textContent = leaderboard[i].name + " : " + leaderboard[i].score;
         list.style = "font-size: .5em";
