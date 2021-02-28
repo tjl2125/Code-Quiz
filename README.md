@@ -1,10 +1,18 @@
 # Code-Quiz-with-Web-APIs
 
 ## Description 
+From the perspective of a boot camp student, I have created a quiz on Javascript information.The quiz is able to storage information locally and compares scores between other 
+inputted players. Scores are listed from highest to lowest. Players press a button in order
+to start the quiz and are presented with 5 questions that have 4 choices. There is also a
+timer counting down and if a person chooses the wrong answer, the timer deducts 5 extra
+seconds. 
+
 
 ## Screenshot 
 
+
 ## Link to Deployed Application 
+https://tjl2125.github.io/Code-Quiz-with-Web-APIs/
 
 ## License 
 MIT License

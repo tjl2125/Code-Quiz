@@ -61,7 +61,7 @@ body{
     top : 125px;
     padding : 10px
 }
-.choice{
+.choice-letters{
     display: inline-block;
     width : 135px;
     text-align: center;
@@ -70,7 +70,7 @@ body{
     cursor: pointer;
     padding : 5px;
 }
-.choice:hover{
+.choice-.choice-letters{
     border : 2px solid var(--black);
     font-weight: bold;
     color: var(--red); 
@@ -121,7 +121,7 @@ body{
 }
 
 li {
-    list-style-type: square;
+   list-style-type: square;
 }
 
 li::before {

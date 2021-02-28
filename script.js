@@ -7,6 +7,7 @@ var showScore = document.getElementById("scoreContainer");
 var correct = document.getElementById("correct");
 var wrong = document.getElementById("wrong"); 
 var leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
+
 var choiceA = document.getElementById("A");
 var choiceB = document.getElementById("B");
 var choiceC = document.getElementById("C");
@@ -59,12 +60,12 @@ var questions = [
 
 var lastQuestion = questions.length - 1;
 var runQuestion = 0;
-var count = 30; //countdown from 30s
+var count = 50; //countdown from 50s
 var questionTime = 0; 
 var timer;
 var score = 0;
 
-// render a question
+// produce the question
 function produceQuestion(){
     let q = questions[runQuestion];
     

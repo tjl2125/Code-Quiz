@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz with Web APIs</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,10 +14,10 @@
         <div id="quiz" style="display: none">
             <div id="question"></div>
             <div id="answers">
-                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
-                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
-                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
-                <div class="choice" id="D" onclick="checkAnswer('D')"></div>
+                <div class="choice-letters" id="A" onclick="checkAnswer('A')"></div>
+                <div class="choice-letters" id="B" onclick="checkAnswer('B')"></div>
+                <div class="choice-letters" id="C" onclick="checkAnswer('C')"></div>
+                <div class="choice-letters" id="D" onclick="checkAnswer('D')"></div>
             </div>
             <div id = "correct"></div>
             <div id = "wrong"></div>
@@ -28,8 +30,6 @@
             <div id = "leaderboard"></div>
                 <div id = "highscore"></div>
                 <div id = "yourName"></div>
-           <!-- <a href = "scores.html" class ="hide" id = "scoreboard">Save your score.</a>
-            <a href = "leaderboard.html" class ="hide" id = "leaderboard">Leaderboard</a>-->
     </div>
     <script src="script.js"></script>
 </body>
